@@ -46,7 +46,7 @@ const { useSyncExternalStore } = require("react")
 function conversorUniversal(valor, origen, destino) {
     // 1. Validaciones iniciales de tipo
     if (typeof valor !== 'number' || isNaN(valor)) {
-        return "❌ Error: El valor debe ser un número válido.";
+        return " Error: El valor debe ser un número válido.";
     }
 
     // Normalizar entradas a minúsculas para evitar errores de capitalización
@@ -65,10 +65,10 @@ function conversorUniversal(valor, origen, destino) {
     const catDestino = Object.keys(categorias).find(cat => categorias[cat].includes(unitD));
 
     // 3. Validar existencia y compatibilidad
-    if (!catOrigen) return `❌ Error: '${origen}' no es una unidad soportada.`;
-    if (!catDestino) return `❌ Error: '${destino}' no es una unidad soportada.`;
+    if (!catOrigen) return ` Error: '${origen}' no es una unidad soportada.`;
+    if (!catDestino) return ` Error: '${destino}' no es una unidad soportada.`;
     if (catOrigen !== catDestino) {
-        return `❌ Error crítico: No se puede convertir ${catOrigen} (${origen}) a ${catDestino} (${destino}).`;
+        return ` Error crítico: No se puede convertir ${catOrigen} (${origen}) a ${catDestino} (${destino}).`;
     }
 
     // Si las unidades son iguales, retornar el mismo valor
@@ -91,10 +91,10 @@ function conversorUniversal(valor, origen, destino) {
         }
 
         // 5. Formatear salida (limitado a 2 decimales para limpieza)
-        return `✅ Resultado: ${valor} ${unitO} equivalen a ${resultado.toFixed(2)} ${unitD}`;
+        return ` Resultado: ${valor} ${unitO} equivalen a ${resultado.toFixed(2)} ${unitD}`;
 
     } catch (error) {
-        return "⚠️ Ocurrió un error inesperado al procesar la conversión.";
+        return " Ocurrió un error inesperado al procesar la conversión.";
     }
 }
 
